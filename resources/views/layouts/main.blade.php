@@ -11,11 +11,11 @@
     <div class="w-full bg-[#233e91] text-white">
         <div class="container mx-auto px-4 flex justify-between items-center h-12">
             <div class="flex items-center space-x-6 text-sm font-medium">
-                <span>📞 1800-103-4721</span>
+                <span>📞 033-40291199</span>
                 <span>✉️ support@meghbeladigital.com</span>
             </div>
             <div class="flex items-center space-x-3">
-                <a href="https://example.com/customer-login" class="bg-white text-[#233e91] px-4 py-2 rounded font-semibold shadow hover:bg-gray-100 transition">Subscriber Login</a>
+                <a href="https://meghbelaselfcare-bcrm.magnaquest.com/" class="bg-white text-[#233e91] px-4 py-2 rounded font-semibold shadow hover:bg-gray-100 transition">Subscriber Login</a>
                 <a href="https://meghbela-bcrm.magnaquest.com//Login.aspx" class="bg-white text-[#233e91] px-4 py-2 rounded font-semibold shadow hover:bg-gray-100 transition">Partner Login</a>
             </div>
         </div>
@@ -54,7 +54,6 @@
                 <div class="font-semibold mb-2 border-b border-gray-600 pb-1">Company</div>
                 <ul class="space-y-2">
                     <li><a href="{{ route('channels') }}" class="hover:underline">Channel List</a></li>
-                    <li><a href="{{ route('contact') }}" class="hover:underline">Contact</a></li>
                     <li><a href="{{ route('terms') }}" class="hover:underline">Terms & Conditions</a></li>
                     <li><a href="{{ route('privacy') }}" class="hover:underline">Privacy Policy</a></li>
                     <li><a href="{{ route('about') }}" class="hover:underline">About</a></li>
