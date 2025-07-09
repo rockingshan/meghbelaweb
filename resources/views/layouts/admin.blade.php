@@ -14,6 +14,7 @@
             <a href="{{ route('admin.index') }}" class="block px-4 py-2 rounded hover:bg-red-700 {{ request()->routeIs('admin.index') ? 'bg-red-800' : '' }}">Dashboard</a>
             <a href="{{ route('admin.posts.index') }}" class="block px-4 py-2 rounded hover:bg-red-700 {{ request()->routeIs('admin.posts.*') ? 'bg-red-800' : '' }}">Manage Posts</a>
             <a href="{{ route('admin.complaints') }}" class="block px-4 py-2 rounded hover:bg-red-700 {{ request()->routeIs('admin.complaints') ? 'bg-red-800' : '' }}">Complaints</a>
+            <a href="{{ route('admin.change-password') }}" class="block px-4 py-2 rounded hover:bg-red-700 {{ request()->routeIs('admin.change-password') ? 'bg-red-800' : '' }}">Change Password</a>
             <form action="{{ route('logout') }}" method="POST" class="mt-8">
                 @csrf
                 <button type="submit" class="w-full text-left px-4 py-2 rounded hover:bg-red-700">Logout</button>

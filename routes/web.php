@@ -33,6 +33,9 @@ Route::middleware(['auth', 'can:access-admin'])->prefix('admin')->as('admin.')->
     Route::get('/', [PostController::class, 'adminIndex'])->name('index');
     Route::resource('posts', PostController::class);
     Route::get('/complaints', [ComplaintController::class, 'index'])->name('complaints');
+    Route::get('/change-password', function () {
+        return view('admin.change-password');
+    })->name('change-password');
 });
 
 // Route::get('/admin', function () {
