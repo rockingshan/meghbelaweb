@@ -1,0 +1,8 @@
+# Deny all access from web to the root and all folders except /public
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ /public/$1 [L,NC]
+</IfModule>
+
+# Deny all access as a fallback
+Deny from all 
