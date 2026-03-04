@@ -1,8 +1,16 @@
-# Deny all access from web to the root and all folders except /public
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule ^(.*)$ /public/$1 [L,NC]
-</IfModule>
+# Protect sensitive files and directories
+<FilesMatch "^\.(env|git|htaccess|htpasswd|ini|phps|fla|psd|log|sh|lock|json|md|yml|yaml|xml|dist|bak|sql|swp|swo|DS_Store|idea|editorconfig|gitattributes|gitignore|gitmodules|svn|hg|bzr|cvs|project|db)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
 
-# Deny all access as a fallback
-Deny from all 
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive folders
+RedirectMatch 404 ^/(storage|vendor|resources|database|bootstrap|config|tests|routes)/

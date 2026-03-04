@@ -1,11 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-    # Handle Front Controller...
+    # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
@@ -13,8 +17,13 @@
 
 # Deny access to .env, .git, composer files, and other sensitive files
 <FilesMatch "^\.(env|git|htaccess|htpasswd|ini|phps|fla|psd|log|sh|lock|json|md|yml|yaml|xml|dist|bak|sql|swp|swo|DS_Store|idea|editorconfig|gitattributes|gitignore|gitmodules|svn|hg|bzr|cvs|project|db)$">
-    Order allow,deny
-    Deny from all
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
 
 # Prevent directory listing
